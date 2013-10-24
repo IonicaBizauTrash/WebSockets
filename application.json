@@ -22,9 +22,9 @@
                 ]
             },
             "operations": {
-                "init"      : { "roles": [0] },
-                "listen"    : { "roles": [0] },
-                "emit"      : { "roles": [0] }
+                "init"      : { "roles": [0], "params": [] },
+                "listen"    : { "roles": [0], "params": [] },
+                "emit"      : { "roles": [0], "params": [] }
             }
         }
     }
