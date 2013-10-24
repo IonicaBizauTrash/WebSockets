@@ -1,0 +1,31 @@
+{
+    "appId" : "webSockets790R6EAUMZ08UXRHDAZUTW",
+    "name"  : "Web Sockets",
+    "routes": {
+        "/" : "webSockets"
+    },
+    "locale": "en",
+    "domains": [
+        "websockets.mono.ch"
+    ],
+    "publicDir": "public",
+    "publicRole": "0",
+    "roles": [ { "id": 0, "name": "public" } ],
+    "miids": {
+        "webSockets": {
+            "module": "github/IonicaBizau/web-sockets/dev",
+            "roles": [0],
+            "config": {
+                "html": "/html/web_sockets/index.html",
+                "css": [
+                    "/css/style.css"
+                ]
+            },
+            "operations": {
+                "init"      : { "roles": [0] },
+                "listen"    : { "roles": [0] },
+                "emit"      : { "roles": [0] }
+            }
+        }
+    }
+}
