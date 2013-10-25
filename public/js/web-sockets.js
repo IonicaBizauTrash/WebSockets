@@ -1,20 +1,30 @@
 (function (window) {
 
+    var socket;
     function ready () {
-        var socket = io.connect(location.origin);
+
+        socket = io.connect(location.origin);
 
         this.socketInit({}, function (err) {
 
             console.log(err);
 
             socket.on('message', function(data) {
-                alert(data);
+                $(".message").after(data + "<br/>");
             });
+        });
+
+        $(".message").on("keyup", function (e) {
+            if (e.keyCode !== 13) {
+                return;
+            }
+
+            sendMessage($(this).val());
         });
     }
 
-    function sendMessage () {
-
+    function sendMessage (message) {
+        socket.emit("newMessage", message);
     }
 
     window.webSockets = {
