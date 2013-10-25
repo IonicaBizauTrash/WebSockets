@@ -17,9 +17,17 @@
             "roles": [0],
             "config": {
                 "html": "/html/web_sockets/index.html",
+                "scripts": [
+                    "/js/web-sockets.js"
+                ],
                 "css": [
                     "/css/style.css"
-                ]
+                ],
+                "listen": {
+                    "webSockets": {
+                        "ready": "webSockets.ready"
+                    }
+                }
             },
             "operations": {
                 "init"      : { "roles": [0], "params": [] },
