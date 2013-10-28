@@ -2,15 +2,9 @@
 
     function ready () {
 
-        socket = io.connect(location.origin.substring(5));
-
-        this.socketInit({}, function (err) {
-
-            console.log(err);
-
-            socket.on('message', function(data) {
-                $(".message").after("<br/>" + data);
-            });
+        var socket = this.socket;
+        socket.on('message', function(data) {
+            $(".message").after("<br/>" + data);
         });
 
         $(".message").on("keyup", function (e) {
