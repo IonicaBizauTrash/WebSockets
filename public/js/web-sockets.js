@@ -1,16 +1,15 @@
 (function (window) {
 
-    var socket;
     function ready () {
 
-        socket = io.connect(location.origin);
+        socket = io.connect(location.origin.substring(5));
 
         this.socketInit({}, function (err) {
 
             console.log(err);
 
             socket.on('message', function(data) {
-                $(".message").after(data + "<br/>");
+                $(".message").after("<br/>" + data);
             });
         });
 
@@ -19,13 +18,11 @@
                 return;
             }
 
-            sendMessage($(this).val());
+            socket.emit("message", $(this).val());
+            $(this).val("");
         });
     }
 
-    function sendMessage (message) {
-        socket.emit("newMessage", message);
-    }
 
     window.webSockets = {
         ready: ready

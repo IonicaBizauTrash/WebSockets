@@ -1,15 +1,24 @@
 M.on("sockets.ready", function () {
-    M.emit("sockets.listen", {
-        event: "connection"
-    }, function (socket) {
-        console.log("Welcome, new user!");
-        socket.emit("message", "Welcome!");
-    });
+    console.log("Sockets are ready on the server side.");
+
+    var clients = [];
 
     M.emit("sockets.listen", {
-        event: "newMessage"
-    }, function (data) {
-        console.log(",,,,,");
-        console.log(data);
+        event: "connection"
+    }, function (client) {
+        console.log("Welcome, new user!");
+
+        clients.push(client);
+
+        M.emit("sockets.listen", {
+            event: "message",
+            client: client
+        }, function (data) {
+            for (var i = 0; i < clients.length; ++i) {
+                clients[i].emit("message", data);
+            }
+        });
+
+        client.emit("message", "Welcome!");
     });
 });
