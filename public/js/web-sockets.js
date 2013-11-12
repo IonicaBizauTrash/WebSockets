@@ -2,8 +2,8 @@
 
     function ready () {
 
-        var socket = this.socket;
-        socket.on('message', function(data) {
+        var self = this;
+        self.clientListen({event: 'message'}, function(data) {
             $(".message").after("<br/>" + data);
         });
 
@@ -12,11 +12,11 @@
                 return;
             }
 
-            socket.emit("message", $(this).val());
+            self.serverEmitGlobal({event: "message", data: $(this).val()});
             $(this).val("");
         });
-    }
 
+    }
 
     window.webSockets = {
         ready: ready

@@ -13,7 +13,7 @@
     "roles": [ { "id": 0, "name": "public" } ],
     "miids": {
         "webSockets": {
-            "module": "github/IonicaBizau/web-sockets/v0.1.0",
+            "module": "github/IonicaBizau/web-sockets/dev",
             "roles": [0],
             "config": {
                 "html": "/html/web_sockets/index.html",
@@ -30,9 +30,7 @@
                 }
             },
             "operations": {
-                "init"      : { "roles": [0], "params": [] },
-                "listen"    : { "roles": [0], "params": [] },
-                "emit"      : { "roles": [0], "params": [] }
+                "init"      : { "roles": [0], "params": [] }
             }
         }
     }
