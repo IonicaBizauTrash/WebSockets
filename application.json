@@ -1,5 +1,5 @@
 {
-    "appId" : "webSockets790R6EAUMZ08UXRHDAZUTW",
+    "appId" : "webSockets_90R6EAUMZ08UXRHDAZUTW",
     "name"  : "Web Sockets",
     "routes": {
         "/" : "webSockets"
